@@ -15,7 +15,7 @@ jobs:
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
-        with:
+        with:  # AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY should be set at repo secrets
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
@@ -60,6 +60,6 @@ jobs:
         run: |
           echo "Your website is hosted at http://davidfoster.link.s3-website-us-east-1.amazonaws.com"
 
-      - name: Deploy static site to S3 bucket
+      - name: Deploy static site to S3 bucket # S3_BUCKET_NAME should be set as a repo variable
         run: |
-          aws s3 sync ./public/ s3://davidfoster.link --delete
+          aws s3 sync ./public/ "s3://${{env.S3_BUCKET_NAME}}" --delete

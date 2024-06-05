@@ -37,6 +37,8 @@ Add the credentials as repository secrets so that github actions can use them to
 
 - Whatever is in the public folder is what will be synced to S3
 
-# Configure the s3_publish_site.yml file
+# Add a repository variable for your S3 bucket
 
-- Update the .github\workflows\s3_publish_site.yml file to publish to your S3 bucket by modifying it to your S3 bucket name
+- Go to the github repo Settings -> Security -> Secrets and Variables -> Actions
+    - Create a new repository variable named "S3_BUCKET_NAME" with the name of your S3 bucket
+
