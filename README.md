@@ -1,6 +1,10 @@
 # s3_static_site
 Static web site content with github action to publish to S3
 
+# Prerequisites
+
+- Have an AWS account and created an S3 bucket setup to host a static website.  See [https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html)
+- The github repo with the static website source files should be public to allow Github actions to work
 
 # Set AWS Credentials
 
@@ -28,3 +32,11 @@ Add the credentials as repository secrets so that github actions can use them to
 - Create two new Repository secrets
     - Create a new secret called "AWS_ACCESS_KEY_ID" and paste the access key id value 
     - Create a new secret called "AWS_SECRET_ACCESS_KEY" and paste the access key secret value
+
+# Create your static website in the repo's "public folder"
+
+- Whatever is in the public folder is what will be synced to S3
+
+# Configure the s3_publish_site.yml file
+
+- Update the .github\workflows\s3_publish_site.yml file to publish to your S3 bucket by modifying it to your S3 bucket name
