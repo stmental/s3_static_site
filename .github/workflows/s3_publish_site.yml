@@ -13,10 +13,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      # - name: Setup Node.js environment
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+
+      - name: Install Hugo
+        run: |
+          apt install hugo
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -71,5 +75,4 @@ jobs:
 
       - name: dmf test
         run: |
-          node --version
-          npm --version
+          hugo version
