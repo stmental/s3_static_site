@@ -42,3 +42,5 @@ Add the credentials as repository secrets so that github actions can use them to
 - Go to the github repo Settings -> Security -> Secrets and Variables -> Actions
     - Create a new repository variable named "S3_BUCKET_NAME" with the name of your S3 bucket
 
+https://gohugo.io/getting-started/quick-start/
+https://themes.gohugo.io/themes/personal-web/
