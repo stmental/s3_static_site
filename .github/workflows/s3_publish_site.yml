@@ -75,10 +75,11 @@ jobs:
         run: |
           echo "Your website is hosted at http://${{vars.S3_BUCKET_NAME}}.s3-website-us-east-1.amazonaws.com"
 
-      - name: Deploy static site to S3 bucket # S3_BUCKET_NAME should be set as a repo variable
-        run: |
-          aws s3 sync ./public/ "s3://${{vars.S3_BUCKET_NAME}}" --delete
+      # - name: Deploy static site to S3 bucket # S3_BUCKET_NAME should be set as a repo variable
+      #   run: |
+      #     aws s3 sync ./public/ "s3://${{vars.S3_BUCKET_NAME}}" --delete
 
-      - name: dmf test
+      - name: Hugo Build 
         run: |
-          hugo version
+          cd ${GITHUB_WORKSPACE}
+          ls

@@ -1,0 +1,4 @@
+baseURL = 'http://davidfoster.link/'
+languageCode = 'en-us'
+title = 'davidfoster.link'
+theme = 'personal-web'
