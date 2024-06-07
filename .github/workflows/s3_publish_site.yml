@@ -77,13 +77,11 @@ jobs:
 
       - name: Hugo Build 
         run: |
-          cd ${GITHUB_WORKSPACE}
-          cd hugo_site_src
+          cd ${GITHUB_WORKSPACE}/hugo_site_src
           hugo || exit 1
 
       - name: Deploy static site to S3 bucket # S3_BUCKET_NAME should be set as a repo variable
         run: |
-          pwd
-          ls
-      #    aws s3 sync ./public/ "s3://${{vars.S3_BUCKET_NAME}}" --delete
+          cd ${GITHUB_WORKSPACE}/hugo_site_src
+          aws s3 sync ./public/ "s3://${{vars.S3_BUCKET_NAME}}" --delete
 
